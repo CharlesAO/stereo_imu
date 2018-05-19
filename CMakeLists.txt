@@ -74,7 +74,7 @@ ${PROJECT_SOURCE_DIR}/src
 ${PROJECT_SOURCE_DIR}/Thirdparty/fast/include
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/
-${PROJECT_SOURCE_DIR}/Thirdparty/Trace/
+${PROJECT_SOURCE_DIR}/Thirdparty/Trace
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
 ${GLOG_INCLUDE_DIRS}
@@ -92,6 +92,7 @@ set(THIRD_PARTY_LIBS
         ${BLAS_LIBRARIES}
         ${LAPACK_LIBRARIES}
         ${GLOG_LIBRARY}
+
 )
 
 add_library(ygz_trace

@@ -1,11 +1,10 @@
 %YAML:1.0
 
 # Dataset dirs
-LeftFolder: /home/gaoxiang/dataset/euroc/V1_01_easy/cam0/data
-RightFolder: /home/gaoxiang/dataset/euroc/V1_01_easy/cam1/data
-IMUFolder:  /home/gaoxiang/dataset/euroc/V1_01_easy/imu0/data.csv
-TimeFolder: /home/gaoxiang/code/ygz-stereo-inertial/examples/EuRoC_TimeStamps/V101.txt
-
+LeftFolder: /home/poiwu/repo/dataset/V1_01_easy/mav0/cam0/data
+RightFolder: /home/poiwu/repo/dataset/V1_01_easy/mav0/cam1/data
+IMUFolder:  /home/poiwu/repo/dataset/V1_01_easy/mav0/imu0/data.csv
+TimeFolder: /home/poiwu/repo/repo1/stereo_imu/examples/V101.txt
 # if running in pure stereo vision mode
 PureVisionMode: false
 

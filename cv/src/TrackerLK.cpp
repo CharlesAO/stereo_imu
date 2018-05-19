@@ -37,7 +37,7 @@ namespace ygz {
         mState = NO_IMAGES_YET;
     }
 
-    SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRight, const double &timestamp,
+SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRight, const double &timestamp,
                                  const VecIMU &vimu) {
 
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
