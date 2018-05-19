@@ -94,14 +94,14 @@ set(THIRD_PARTY_LIBS
         ${GLOG_LIBRARY}
 )
 
-	add_library(ygz_trace
-		${PROJECT_SOURCE_DIR}/Thirdparty/Trace/trace.cpp
-	)
+add_library(ygz_trace
+${PROJECT_SOURCE_DIR}/Thirdparty/Trace/trace.cpp
+)
 
 
 set(THIRD_PARTY_LIBS 
 ${THIRD_PARTY_LIBS}
-ygz_trace);
+ygz_trace)
 
 # subdirectories
 include_directories(
