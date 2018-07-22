@@ -1,6 +1,7 @@
 
 #include "trace.h"
 
+int Tracer::atrace_marker_fd = -1;
 
  void Tracer::trace_init()
 {
