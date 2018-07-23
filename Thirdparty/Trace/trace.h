@@ -29,7 +29,28 @@ public:
 	    write(atrace_marker_fd, &c, 1);
 	}
 
-	static int atrace_marker_fd;
+	
+
+private:
+static int atrace_marker_fd;
+
+
+class ScopedTrace {
+public:
+    inline ScopedTrace(const char* name)
+    {
+#if ENABLE_TRACE
+        Tracer::trace_begin(name);
+#endif
+    }
+
+    inline ~ScopedTrace()
+    {
+#if ENABLE_TRACE
+        Tracer::trace_end();
+#endif
+    }
+};
 };
 
 #endif
