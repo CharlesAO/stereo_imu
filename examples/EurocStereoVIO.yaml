@@ -1,10 +1,10 @@
 %YAML:1.0
 
 # Dataset dirs
-LeftFolder: /home/poiwu/repo/dataset/V1_01_easy/mav0/cam0/data
-RightFolder: /home/poiwu/repo/dataset/V1_01_easy/mav0/cam1/data
-IMUFolder:  /home/poiwu/repo/dataset/V1_01_easy/mav0/imu0/data.csv
-TimeFolder: /home/poiwu/repo/repo1/stereo_imu/examples/V101.txt
+LeftFolder: /home/poiwu/dataset/MH_01/cam0/data
+RightFolder: /home/poiwu/dataset/MH_01/cam1/data
+IMUFolder:  /home/poiwu/dataset/MH_01/imu0/data.csv
+TimeFolder: /home/poiwu/SLAM/stereo_imu/examples/EuRoC_TimeStamps/MH01.txt
 # if running in pure stereo vision mode
 PureVisionMode: false
 

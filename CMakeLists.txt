@@ -23,6 +23,7 @@ endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(OpenCV_DIR /home/poiwu/opencv/build)
 
 # Check C++11 or C++0x support
 include(CheckCXXCompilerFlag)
@@ -50,19 +51,19 @@ ENDIF()
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake-modules)
 
 # thirdparty libs 
-find_package(OpenCV 3.0 QUIET)
-if(NOT OpenCV_FOUND)
-    message(STATUS "Don't get Opencv 3.0, looking for OpenCV 2.4.")
-   find_package(OpenCV 2.4 QUIET)
-   if(NOT OpenCV_FOUND)
-      message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
-   endif()
-endif()
+#find_package(OpenCV 3.0 QUIET)
+#if(NOT OpenCV_FOUND)
+#    message(STATUS "Don't get Opencv 3.0, looking for OpenCV 2.4.")
+#   find_package(OpenCV 2.4 QUIET)
+#   if(NOT OpenCV_FOUND)
+#      message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
+#   endif()
+#endif()
 
+find_package(OpenCV 3.1 REQUIRED ) 
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package( Glog REQUIRED )
-
 # to show 'include' in QtCreator
 FILE(GLOB_RECURSE INC_ALL "*/*.h")
 add_custom_target(headers SOURCES ${INC_ALL})
@@ -77,7 +78,8 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/
 ${PROJECT_SOURCE_DIR}/Thirdparty/Trace
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
-${GLOG_INCLUDE_DIRS}
+${GLOG_INCLUDE_DIRS} 
+${OpenCV_INCLUDE_DIRS}
 )
 
 

@@ -1,8 +1,8 @@
 cd Thirdparty/DBoW2/
 mkdir build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j6
+cmake .. -DCMAKE_BUILD_TYPE=Release -DOPenCV_DIR=/usr/local/share/OpenCV/
+make -j4
 
 cd ../../g2o
 mkdir build

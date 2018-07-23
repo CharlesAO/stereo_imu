@@ -7,12 +7,14 @@
 
 #include "ygz/System.h"
 #include "ygz/EurocReader.h"
-
+#include "trace.h"
 using namespace std;
 using namespace ygz;
 
 int main(int argc, char **argv) {
 
+
+	Tracer::trace_init();
     if (argc != 2) {
         LOG(INFO) << "Usage: EurocStereoVIO path_to_config" << endl;
         return 1;
@@ -122,8 +124,9 @@ int main(int argc, char **argv) {
             vimu.push_back(imudata);
             imuIndex++;
         }
-
+    	Tracer::trace_begin("AddStereoIMU");
         system.AddStereoIMU(imLeftRect, imRightRect, tframe, vimu);
+    	Tracer::trace_end();
     }
 
     return 0;
