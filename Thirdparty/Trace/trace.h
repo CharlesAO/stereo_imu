@@ -30,27 +30,26 @@ public:
 	}
 
 	
-
-private:
 static int atrace_marker_fd;
-
+};
 
 class ScopedTrace {
 public:
     inline ScopedTrace(const char* name)
     {
-#if ENABLE_TRACE
+#if 1
         Tracer::trace_begin(name);
 #endif
     }
 
     inline ~ScopedTrace()
     {
-#if ENABLE_TRACE
+#if 1
         Tracer::trace_end();
 #endif
     }
 };
-};
+
+
 
 #endif

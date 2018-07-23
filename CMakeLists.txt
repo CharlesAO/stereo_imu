@@ -125,7 +125,7 @@ add_subdirectory(backend)
 
 add_subdirectory(system)
 
-set(YGZ_LIBS ygz-common ygz-cv ygz-util ygz-backend ygz-system)
+set(YGZ_LIBS ygz-common ygz-cv ygz-util ygz-backend ygz-system ygz_trace)
 
 # build examples
 add_subdirectory( examples )

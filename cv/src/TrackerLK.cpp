@@ -42,16 +42,19 @@ SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRig
 
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
-        Tracer::trace_begin("InsertStereo_LK");
         if (setting::trackerUseHistBalance) {
             // perform a histogram equalization
             cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(3.0, cv::Size(8, 8));
             Mat imgLeftAfter, imgRightAfter;
             clahe->apply(imRectLeft, imgLeftAfter);
             clahe->apply(imRectRight, imgRightAfter);
+            Tracer::trace_begin("mpCurrentFrame");
             mpCurrentFrame = shared_ptr<Frame>(new Frame(imgLeftAfter, imgRightAfter, timestamp, mpCam, vimu));
+            Tracer::trace_end();
         } else {
+        	Tracer::trace_begin("mpCurrentFrame");
             mpCurrentFrame = shared_ptr<Frame>(new Frame(imRectLeft, imRectRight, timestamp, mpCam, vimu));
+            Tracer::trace_end();
         }
 
         if (this->mbVisionOnlyMode == false)
@@ -80,11 +83,10 @@ SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRig
         if (mbVisionOnlyMode == false)
             LOG(INFO) << "speed and bias = \n" << mpCurrentFrame->mSpeedAndBias.transpose() << endl;
         return mpCurrentFrame->GetPose();
-       Tracer::trace_end();
     }
 
     void TrackerLK::Track() {
-
+        ScopedTrace("Track_LK");
         mTrackInliersCnt = 0;
 
         if (mState == NO_IMAGES_YET) {

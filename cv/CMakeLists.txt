@@ -7,4 +7,4 @@ add_library(ygz-cv
         src/TrackerLK.cpp
         )
 
-target_link_libraries(ygz-cv ygz-common ${THIRD_PARTY_LIBS})
+target_link_libraries(ygz-cv ygz-common ygz_trace ${THIRD_PARTY_LIBS})
