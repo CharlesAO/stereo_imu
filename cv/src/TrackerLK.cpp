@@ -9,7 +9,7 @@
 
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-
+#include "trace.h"
 namespace ygz {
 
     TrackerLK::TrackerLK(const string &settingFile) {
@@ -42,6 +42,7 @@ SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRig
 
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 
+        Tracer::trace_begin("InsertStereo_LK");
         if (setting::trackerUseHistBalance) {
             // perform a histogram equalization
             cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(3.0, cv::Size(8, 8));
@@ -79,6 +80,7 @@ SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRig
         if (mbVisionOnlyMode == false)
             LOG(INFO) << "speed and bias = \n" << mpCurrentFrame->mSpeedAndBias.transpose() << endl;
         return mpCurrentFrame->GetPose();
+       Tracer::trace_end();
     }
 
     void TrackerLK::Track() {

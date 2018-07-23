@@ -23,7 +23,7 @@ endif()
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
-set(OpenCV_DIR /home/poiwu/opencv/build)
+set(OpenCV_DIR "/Thirdparty/opencv-3.1.0")
 
 # Check C++11 or C++0x support
 include(CheckCXXCompilerFlag)
@@ -78,8 +78,7 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/
 ${PROJECT_SOURCE_DIR}/Thirdparty/Trace
 ${EIGEN3_INCLUDE_DIR}
 ${Pangolin_INCLUDE_DIRS}
-${GLOG_INCLUDE_DIRS} 
-${OpenCV_INCLUDE_DIRS}
+${GLOG_INCLUDE_DIRS}
 )
 
 

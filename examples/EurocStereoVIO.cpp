@@ -108,10 +108,11 @@ int main(int argc, char **argv) {
             LOG(WARNING) << "Cannot load image " << i << endl;
             continue;
         }
-
+        Tracer::trace_begin("Remap");
         cv::remap(imLeft, imLeftRect, M1l, M2l, cv::INTER_LINEAR);
         cv::remap(imRight, imRightRect, M1r, M2r, cv::INTER_LINEAR);
 
+      	Tracer::trace_end();
         // and imu
         VecIMU vimu;
 

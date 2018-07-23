@@ -1,7 +1,7 @@
 #include "ygz/System.h"
 #include "ygz/TrackerLK.h"
 #include "ygz/BackendSlidingWindowG2O.h"
-
+#include "trace.h"
 namespace ygz {
 
     System::System(const string &configPath) {
