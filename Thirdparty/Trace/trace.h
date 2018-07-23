@@ -6,13 +6,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#define ATRACE_MESSAGE_LEN 256
+#define ATRACE_MESSAGE_LEN 1024
 
 
 class Tracer {
 
 public:
-
+    inline Tracer()
+    {
+       Init();
+    }
 	static void trace_init();
 
 
@@ -29,8 +32,20 @@ public:
 	    write(atrace_marker_fd, &c, 1);
 	}
 
-	
+private:
 static int atrace_marker_fd;
+
+    static inline void Init()
+    {
+#if ENABLE_TRACE
+        const char* const traceFileName = "/sys/kernel/debug/tracing/trace_marker";
+        sTraceFD = open(traceFileName, O_WRONLY);
+        if (sTraceFD == -1) {
+            std::cout << "error opening trace file: " << strerror(errno) << " (" << errno << ")" << std::endl;
+            // sEnabledTags remains zero indicating that no tracing can occur
+        }
+#endif
+    }
 };
 
 class ScopedTrace {
