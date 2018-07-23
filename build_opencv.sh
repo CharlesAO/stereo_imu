@@ -1,9 +1,13 @@
 cd Thirdparty/opencv-3.1.0/
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/Thirdparty/opencv-3.1.0
+cmake ..
 make -j6
 sudo make install
 
-#如果失败使用cmake-gui 在 opencv-3.1.0调整完
-#使用sudo make install 先build完opencv.
+#如果失败使用cmake-gui 在 
+#Where is thr source code :: /home/poiwu/SLAM/stereo_imu/Thirdparty/opencv-3.1.0
+#Where to build the binaries :: /home/poiwu/SLAM/stereo_imu/Thirdparty/opencv-3.1.0/build
+#Configure -> generate 
+#使用sudo make install 完成安装opencv.
+#执行 ./generate
