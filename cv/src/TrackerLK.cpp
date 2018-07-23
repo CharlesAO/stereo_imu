@@ -41,10 +41,6 @@ SE3d TrackerLK::InsertStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRig
                                  const VecIMU &vimu) {
 
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
-<<<<<<< f43c0626791c97e035399c2ebb0efcd8a84b6dfc
-
-=======
->>>>>>> [Add ScopedTrace and trace.sh to trace.h]
         if (setting::trackerUseHistBalance) {
             // perform a histogram equalization
             cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(3.0, cv::Size(8, 8));
